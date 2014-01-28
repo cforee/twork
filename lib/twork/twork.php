@@ -11,8 +11,8 @@
 
     // path to local cache file
     // IMPORTANT: this cache file should be writable by web server
-
     $twcache_path = ('cache/cache.json');
+    
     // Twitter search query URL
     // NOTE: replace this with your own twitter url or search query
     //       (https://dev.twitter.com/docs/api/1.1)
