@@ -1,6 +1,6 @@
-
 $(document).ready(function() {
   var addItems, autoScroll, getAgoFromCreatedDate, getAgoString, populateTimeline, replaceURLWithHTMLLinks, unitHelper;
+
   populateTimeline = function() {
     var timeline;
     timeline = void 0;
@@ -13,7 +13,7 @@ $(document).ready(function() {
           items.push("<div class=\"body\">" + replaceURLWithHTMLLinks(v.text) + "</div>");
           items.push("<div class=\"posted-at\">" + getAgoFromCreatedDate(v.created_at) + "</div>");
           items.push("<div class=\"divider\">&nbsp;</div>");
-          return addItems("#twitter-feed .wrapper .container .tweets", items);
+          return addItems("#twidget .tweets", items);
         }
       });
     }).always(function() {
@@ -21,6 +21,7 @@ $(document).ready(function() {
     });
     return false;
   };
+
   getAgoFromCreatedDate = function(dateString) {
     var ago, posted_date, todays_date;
     todays_date = new Date().getTime();
@@ -28,6 +29,7 @@ $(document).ready(function() {
     ago = (todays_date - posted_date) / 1000;
     return getAgoString(ago);
   };
+
   getAgoString = function(ago) {
     var response;
     response = unitHelper("minute", 60, ago);
@@ -48,6 +50,7 @@ $(document).ready(function() {
     }
     return "unknown";
   };
+
   unitHelper = function(unit, limit, ago) {
     var units, units_ago;
     units = {
@@ -69,6 +72,7 @@ $(document).ready(function() {
       return false;
     }
   };
+
   addItems = function(target_elem, items) {
     var new_elem;
     new_elem = $("<div class=\"tweet\"></div>");
@@ -77,14 +81,16 @@ $(document).ready(function() {
     });
     return $(target_elem).append(new_elem);
   };
+
   replaceURLWithHTMLLinks = function(text) {
     var exp;
     exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
     return text.replace(exp, "<a href='$1'>$1</a>");
   };
+
   autoScroll = function() {
     var i, tweets;
-    tweets = $("#twitter-feed .tweets .tweet");
+    tweets = $("#twidget .tweets .tweet");
     i = 0;
     return setInterval((function() {
       $(tweets[i]).find("*").fadeTo(500, 0, function() {
