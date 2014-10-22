@@ -4,4 +4,5 @@ A couple of tools (PHP & JS) for getting raw JSON from Twitter and displaying it
 
 Notes:
 
-    Depends on twitteroauth by abraham https://github.com/abraham/twitteroauth
+    - Depends on twitteroauth by abraham https://github.com/abraham/twitteroauth
+    - Requires only CLI php, but full LAMP server stack will obviously work also
